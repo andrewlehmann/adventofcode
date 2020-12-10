@@ -14,10 +14,8 @@ def go_downhill(slope, hill_data):
             return num_trees_encountered
 
         current_location = (next_x_location, next_y_location)
-        # print("X:" + str(next_x_location) + " - Y:" + str(next_y_location) + " - Value: " + hill_data[next_y_location][next_x_location])
 
         if (hill_data[next_y_location][next_x_location]) == '#':
-
             num_trees_encountered += 1
 
     return num_trees_encountered
