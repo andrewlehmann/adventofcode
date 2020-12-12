@@ -23,18 +23,13 @@ def rotate(x, y, direction_to_rotate, degrees_to_rotate):
         return (y, -x)
     elif new_direction == 0:
         return (x, y)
-    else:
-      raise ValueError("Bad direction: " + direction_to_rotate)
-
 
 input_data = open("src/2020/Day12/input.txt")
 lines = input_data.readlines()
 actions = [line.rstrip('\n') for line in lines]
-print(actions)
 
-location_x = 0
-location_y = 0
-
+ship_x = 0
+ship_y = 0
 waypoint_x = 10
 waypoint_y = 1
 
@@ -44,26 +39,20 @@ for action in actions:
 
     if action_type == 'L':
         waypoint_x, waypoint_y = rotate(waypoint_x, waypoint_y, action_type, value)
-
     elif action_type == 'R':
         waypoint_x, waypoint_y = rotate(waypoint_x, waypoint_y, action_type, value)
-
     elif action_type == "N":
         waypoint_y += value
-
     elif action_type == "S":
         waypoint_y -= value
-
     elif action_type == "E":
         waypoint_x += value
-
     elif action_type == "W":
         waypoint_x -= value
-
     elif action_type == 'F':
-        location_x = location_x + value * waypoint_x
-        location_y = location_y + value * waypoint_y
+        ship_x = ship_x + value * waypoint_x
+        ship_y = ship_y + value * waypoint_y
 
 
-print(location_x, location_y)
-print(abs(location_x) + abs(location_y))
+print(ship_x, ship_y)
+print(abs(ship_x) + abs(ship_y))
