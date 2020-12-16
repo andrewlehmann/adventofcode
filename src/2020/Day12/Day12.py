@@ -5,7 +5,7 @@ def rotate(x, y, direction_to_rotate, degrees_to_rotate):
 
     if x == 0 and y == 0:
       return (0, 0)
-    elif x != 0:
+    elif y == 0:
       curr_direction = round(math.atan(math.radians(x / y)) / 90) * 90
     else: 
       curr_direction = 90 if y > 0 else 270
