@@ -6,18 +6,20 @@ def main():
 
     horizontal_position = 0
     depth = 0
+    aim = 0
 
     for command in commands:
       direction, amt = command.split(' ', 1)
 
       if (direction == 'forward'):
         horizontal_position += int(amt)
+        depth = depth + aim * int(amt)
       
       if (direction == 'down'):
-        depth += int(amt)
+        aim += int(amt)
       
       if (direction == 'up'):
-        depth -= int(amt)
+        aim -= int(amt)
 
     print(depth * horizontal_position)
 
